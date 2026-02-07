@@ -1,7 +1,12 @@
 # pdf-compressor
 
-Simple scripts to compress PDF files using [Ghostscript](https://www.ghostscript.com/). Available in both Bash (macOS/Linux) and PowerShell (Windows).
+I've been using this to compress large PDFs to upload to various AI chats for summarizing and analysingm, 
+its a simple script to compress PDF files using [Ghostscript](https://www.ghostscript.com/). 
+Available in both Bash (macOS/Linux) and PowerShell (Windows).
+tested on Ubuntu and Windows  
+PDFs that are rich with screen grabs (e.g. lesson transcripts etc.) are compressed about 10x (80Mb > 8mb) 
 
+you must have ghostscript for this to work, its free 
 ## Installing Ghostscript
 
 ### macOS
