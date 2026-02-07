@@ -28,26 +28,6 @@ sudo dnf install ghostscript
 sudo pacman -S ghostscript
 ```
 
-### Windows
-
-Download the installer from https://www.ghostscript.com/releases/gsdnld.html and run it. Make sure to check **"Add to PATH"** during installation.
-
-If you use [Chocolatey](https://chocolatey.org/):
-
-```powershell
-choco install ghostscript
-```
-
-If you use [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
-
-```powershell
-winget install --id ArtifexSoftware.GhostScript
-```
-
-### WSL (Windows Subsystem for Linux)
-
-Use the Ubuntu/Debian or Fedora instructions above depending on your WSL distro.
-
 ### Verify installation
 
 ```bash
