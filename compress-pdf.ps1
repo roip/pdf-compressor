@@ -67,12 +67,19 @@ Write-Host "Quality:     /$Quality"
 Write-Host "Output:      $outputFile"
 Write-Host ""
 
-& $gsExe -sDEVICE=pdfwrite `
-    -dCompatibilityLevel=1.4 `
-    "-dPDFSETTINGS=/$Quality" `
-    -dNOPAUSE -dQUIET -dBATCH `
-    "-sOutputFile=$outputFile" `
-    $InputFile
+$gsArgs = @(
+    "-sDEVICE=pdfwrite",
+    "-dCompatibilityLevel=1.4",
+    "-dPDFSETTINGS=/$Quality",
+    "-dNOPAUSE", "-dBATCH",
+    "-sOutputFile=$outputFile",
+    $InputFile.ToString()
+)
+
+Write-Host "Running: $gsExe $($gsArgs -join ' ')"
+Write-Host ""
+
+& $gsExe $gsArgs
 
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Ghostscript failed with exit code $LASTEXITCODE"
