@@ -2,9 +2,59 @@
 
 A simple Bash script that compresses PDF files using [Ghostscript](https://www.ghostscript.com/).
 
-## Requirements
+## Installing Ghostscript
 
-- Ghostscript (`gs`) installed and available on your PATH
+### macOS
+
+```bash
+brew install ghostscript
+```
+
+### Ubuntu / Debian
+
+```bash
+sudo apt update && sudo apt install ghostscript
+```
+
+### Fedora / RHEL
+
+```bash
+sudo dnf install ghostscript
+```
+
+### Arch Linux
+
+```bash
+sudo pacman -S ghostscript
+```
+
+### Windows
+
+Download the installer from https://www.ghostscript.com/releases/gsdnld.html and run it. Make sure to check **"Add to PATH"** during installation.
+
+If you use [Chocolatey](https://chocolatey.org/):
+
+```powershell
+choco install ghostscript
+```
+
+If you use [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
+
+```powershell
+winget install --id ArtifexSoftware.GhostScript
+```
+
+### WSL (Windows Subsystem for Linux)
+
+Use the Ubuntu/Debian or Fedora instructions above depending on your WSL distro.
+
+### Verify installation
+
+```bash
+gs --version
+```
+
+You should see a version number like `10.02.1`. If you get `command not found`, ensure Ghostscript is on your PATH.
 
 ## Usage
 
