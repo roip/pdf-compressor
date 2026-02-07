@@ -1,6 +1,6 @@
 # pdf-compressor
 
-A simple Bash script that compresses PDF files using [Ghostscript](https://www.ghostscript.com/).
+Simple scripts to compress PDF files using [Ghostscript](https://www.ghostscript.com/). Available in both Bash (macOS/Linux) and PowerShell (Windows).
 
 ## Installing Ghostscript
 
@@ -28,18 +28,42 @@ sudo dnf install ghostscript
 sudo pacman -S ghostscript
 ```
 
+### Windows
+
+Download the installer from https://www.ghostscript.com/releases/gsdnld.html and make sure to check **"Add to PATH"** during installation.
+
+Or via a package manager:
+
+```powershell
+choco install ghostscript
+# or
+winget install --id ArtifexSoftware.GhostScript
+```
+
 ### Verify installation
 
 ```bash
 gs --version
 ```
 
-You should see a version number like `10.02.1`. If you get `command not found`, ensure Ghostscript is on your PATH.
+On Windows (if not installed via Chocolatey):
+
+```powershell
+gswin64c --version
+```
 
 ## Usage
 
+### Bash (macOS / Linux)
+
 ```bash
 ./compress-pdf.sh <input.pdf> [quality]
+```
+
+### PowerShell (Windows)
+
+```powershell
+.\compress-pdf.ps1 <input.pdf> [-Quality <level>]
 ```
 
 The compressed file is saved alongside the original with `- compressed` appended to the filename.
@@ -55,15 +79,18 @@ The compressed file is saved alongside the original with `- compressed` appended
 
 ### Examples
 
+**Bash:**
+
 ```bash
-# Compress with default ebook quality (150 dpi)
 ./compress-pdf.sh report.pdf
-
-# Compress for minimal file size
 ./compress-pdf.sh report.pdf screen
+```
 
-# Compress for print
-./compress-pdf.sh report.pdf printer
+**PowerShell:**
+
+```powershell
+.\compress-pdf.ps1 report.pdf
+.\compress-pdf.ps1 report.pdf -Quality screen
 ```
 
 ### Sample output
